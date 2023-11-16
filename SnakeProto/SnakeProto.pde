@@ -18,10 +18,11 @@ void draw(){
  snake.display();
  snake.move();
  
+ //delay the tail to have more segmented look
 }
 void keyPressed(){
   snake.direction(key);
-  if (key==' '){
+  if (key==' '|| key=='='){
    //increase a variable that controls how long the circles are being drawn
    //
    bodylimit++;

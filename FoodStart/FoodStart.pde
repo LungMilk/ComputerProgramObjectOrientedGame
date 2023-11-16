@@ -9,5 +9,5 @@ void draw(){
   }
 }
 void keyPressed(){
-  foodList.add(new Food());
+  foodList.add(new Food(foodList.size()));
 }
