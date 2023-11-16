@@ -6,7 +6,7 @@ class Snake{
   int ydirection;
   
   PVector positionSnake;
-  
+  //move all contructor ot a seperate funciton called restart to allow for replayability
   Snake(){
     positionSnake = new PVector(width/2,height/2);
   }
