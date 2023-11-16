@@ -12,7 +12,13 @@ class Snake{
   }
   
   void display(){
-    for (int i =0;i<snakelist.size();i++){
+    PVector positionSnakeHistory = new PVector (positionSnake.x,positionSnake.y);
+    snakelist.add(positionSnakeHistory); 
+    if (snakelist.size()>bodylimit){
+     snakelist.remove(0); 
+    }
+    
+    for (int i =0;i<constrain(snakelist.size(),0,bodylimit);i++){
     ellipseMode(CENTER);
     PVector s = snakelist.get(i);
     ellipse(s.x,s.y,10,10);

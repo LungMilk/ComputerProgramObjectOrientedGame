@@ -5,6 +5,7 @@ ArrayList<PVector> snakelist = new ArrayList<PVector>();
 
 int xDirect;
 int yDirect;
+int bodylimit;
 
 void setup(){
   size(400,400);
@@ -21,9 +22,9 @@ void draw(){
 void keyPressed(){
   snake.direction(key);
   if (key==' '){
-   //increase add an object to the snake array list
-   //not recording the history of the positions 
-   snake.grow();
+   //increase a variable that controls how long the circles are being drawn
+   //
+   bodylimit++;
    println(snakelist.size());
   }
 }
