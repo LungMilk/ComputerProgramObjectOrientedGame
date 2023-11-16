@@ -1,5 +1,7 @@
 Snake snake = new Snake();
-ArrayList<Snake> snakelist = new ArrayList<Snake>();
+
+//the list is the recorded history for the single snake
+ArrayList<PVector> snakelist = new ArrayList<PVector>();
 
 int xDirect;
 int yDirect;
@@ -13,14 +15,14 @@ void draw(){
  background(255);
  snake.display();
  snake.move();
- yDirect = 0;
- xDirect = 0;
+ 
 }
 void keyPressed(){
   snake.direction(key);
   if (key==' '){
    //increase add an object to the snake array list
-   snakelist.add(new Snake());
+   //not recording the history of the positions 
+   snake.grow();
    println(snakelist.size());
   }
 }

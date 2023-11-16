@@ -2,23 +2,29 @@ class Snake{
   //i want each snake to handle its own expantion and growth as well as intersections
   //snake body is what shouldbe repeated
   // to get the snake to move there will be a directional input that then causes the snake to move in a direction
-  int xPos;
-  int yPos;
   int xdirection;
   int ydirection;
   
+  PVector positionSnake;
+  
   Snake(){
-    xPos = width/2;
-    yPos = height/2;
+    positionSnake = new PVector(width/2,height/2);
   }
   
   void display(){
+    for (int i =0;i<snakelist.size();i++){
     ellipseMode(CENTER);
-    ellipse(xPos,yPos,10,10);
+    PVector s = snakelist.get(i);
+    ellipse(s.x,s.y,10,10);
+    }
+  }
+  void grow(){
+    PVector positionSnakeHistory = new PVector (positionSnake.x,positionSnake.y);
+    snakelist.add(positionSnakeHistory); 
   }
   void move(){
-    xPos = xPos + 1* xdirection;
-    yPos = yPos + 1* ydirection;
+    positionSnake.x = positionSnake.x + 1* xdirection;
+    positionSnake.y = positionSnake.y + 1* ydirection;
   }
   //check boundries
   //movement is restrictive
