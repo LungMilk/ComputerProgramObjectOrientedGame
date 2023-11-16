@@ -37,6 +37,16 @@ class Snake{
   }
   //check boundries
   //movement is restrictive
+  //change to only dreaw and change value after mvement
+  //keypressed move the past thing modified by position 
+  
+  /*what we need to change 
+  reference week 7 to modify how th einput is controlled
+  change it to a boolean of the state and handle it in the movement during the draw loop to draw it only after it is moved 
+  //for snake position have the body draw only after movement ahs occured to remove accordian style body as well as move in incriments equal to its size or do sneaky math to have it as such
+  
+  
+  */
   void direction(char c){
     //y + down y - up
     //x + right x - left
