@@ -6,9 +6,11 @@ class Snake{
   int ydirection;
   
   PVector positionSnake;
+  PVector velocity;
   //move all contructor ot a seperate funciton called restart to allow for replayability
   Snake(){
     positionSnake = new PVector(width/2,height/2);
+    velocity = new PVector(1,1);
   }
   
   void display(){
@@ -29,8 +31,9 @@ class Snake{
     snakelist.add(positionSnakeHistory); 
   }
   void move(){
-    positionSnake.x = positionSnake.x + 1* xdirection;
-    positionSnake.y = positionSnake.y + 1* ydirection;
+    velocity.normalize();
+    positionSnake.x = positionSnake.x + velocity.x;
+    positionSnake.y = positionSnake.y + velocity.y;
   }
   //check boundries
   //movement is restrictive
@@ -42,24 +45,24 @@ class Snake{
     
     //have direction be the 1,-1 
     if (c=='w'){
-      ydirection = -1;
+      velocity.y= -1;
     }
     if (c=='s'){
-      ydirection = 1;
+      velocity.y = 1;
     }
     if (c=='a'){
-      xdirection = -1;
+      velocity.x = -1;
     }
     if (c=='d'){
-      xdirection = 1;
+      velocity.x = 1;
     }
   }
   void stop(char c){
    if (c=='w' || c=='s'){
-    ydirection = 0; 
+    velocity.y = 0; 
    }
    if (c=='a' || c=='d'){
-    xdirection = 0; 
+    velocity.x = 0; 
    }
   }
 }
