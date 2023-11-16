@@ -10,7 +10,7 @@ class Snake{
   //move all contructor ot a seperate funciton called restart to allow for replayability
   Snake(){
     positionSnake = new PVector(width/2,height/2);
-    velocity = new PVector(1,1);
+    velocity = new PVector(0,0);
   }
   
   void display(){
