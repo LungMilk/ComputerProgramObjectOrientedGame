@@ -2,17 +2,26 @@ class Snake{
   //i want each snake to handle its own expantion and growth as well as intersections
   //snake body is what shouldbe repeated
   // to get the snake to move there will be a directional input that then causes the snake to move in a direction
+  PVector position;
+  PVector velocity;
+  
+  float speed = 1;
+  
   int xdirection;
   int ydirection;
+  
+  
   
   PVector positionSnake;
   
   Snake(){
     positionSnake = new PVector(width/2,height/2);
+    velocity = new PVector(0,0);
+    position = new PVector(200,200);
   }
   
   void display(){
-    PVector positionSnakeHistory = new PVector (positionSnake.x,positionSnake.y);
+    PVector positionSnakeHistory = new PVector (position.x,position.y);
     snakelist.add(positionSnakeHistory); 
     if (snakelist.size()>bodylimit){
      snakelist.remove(0); 
@@ -29,37 +38,28 @@ class Snake{
     snakelist.add(positionSnakeHistory); 
   }
   void move(){
-    positionSnake.x = positionSnake.x + 1* xdirection;
-    positionSnake.y = positionSnake.y + 1* ydirection;
-  }
-  //check boundries
-  //movement is restrictive
-  void direction(char c){
-    //y + down y - up
-    //x + right x - left
+  if(keyPressed){
+    if(goUp){
+     velocity.y=-speed;
+    }
+    else if(goDown){
+     velocity.y=speed;
+    }
+    //else{
+    // velocity.y=0; 
+    //}
     
-    //to resolve movement i have to have the movement keys operate in such a way that is if s||d per direction and do some wacky math
-    
-    //have direction be the 1,-1 
-    if (c=='w'){
-      ydirection = -1;
+    if(goLeft){
+     velocity.x= -speed;
     }
-    if (c=='s'){
-      ydirection = 1;
+    else if(goRight){
+     velocity.x= speed;
     }
-    if (c=='a'){
-      xdirection = -1;
-    }
-    if (c=='d'){
-      xdirection = 1;
-    }
+    //else{
+    // velocity.x=0; 
+    //}
   }
-  void stop(char c){
-   if (c=='w' || c=='s'){
-    ydirection = 0; 
-   }
-   if (c=='a' || c=='d'){
-    xdirection = 0; 
-   }
+  velocity.normalize();
+  position.add(velocity);
   }
 }
