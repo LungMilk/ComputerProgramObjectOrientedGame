@@ -1,4 +1,5 @@
 Snake snake = new Snake();
+Snake snake2 = new Snake();
 boolean goUp;
 boolean goDown;
 boolean goLeft;
@@ -31,12 +32,16 @@ void keyPressed(){
   if (key==' '|| key=='='){
    //increase a variable that controls how long the circles are being drawn
    //
+   
+   //yh updown gj leftright
+   
    bodylimit++;
    println(snakelist.size());
    println(bodylimit);
   }
   
   switch(key){
+    //question how could i handle movment for two characters as hard coded individuals for the joystick
    case 'w':
    goUp = true;
      break;

@@ -20,7 +20,6 @@ class Snake{
     positionSnake = new PVector(width/2,height/2);
     velocity = new PVector(0,0);
     position = new PVector(200,200);
-    size = 20;
   }
   
   void display(){
@@ -36,6 +35,7 @@ class Snake{
     PVector s = snakelist.get(i);
     stroke(255,100,100);
     fill(255,0,0);
+    size = snakelist.size()/2 + 10;
     ellipse(s.x,s.y,size,size);
     }
   }
