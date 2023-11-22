@@ -13,7 +13,7 @@ int bodylimit;
 
 void setup(){
   size(400,400);
-  snakelist.add(snake.positionSnake);
+  snakelist.add(snake.position);
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
@@ -33,7 +33,9 @@ void keyPressed(){
    //
    bodylimit++;
    println(snakelist.size());
+   println(bodylimit);
   }
+  
   switch(key){
    case 'w':
    goUp = true;
