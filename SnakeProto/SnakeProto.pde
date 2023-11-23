@@ -7,6 +7,10 @@ boolean goRight;
 
 //the list is the recorded history for the single snake
 ArrayList<PVector> snakelist = new ArrayList<PVector>();
+ArrayList<Food> foodList = new ArrayList<Food>();
+Timer timer;
+int frequency = 2000;
+
 
 int xDirect;
 int yDirect;
@@ -15,6 +19,8 @@ int bodylimit;
 void setup(){
   size(400,400);
   snakelist.add(snake.position);
+   timer = new Timer(frequency);
+ timer.start();
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
@@ -26,12 +32,18 @@ void draw(){
  fill(0);
  text("x " + snake.position.x,100,100);
  text("y " + snake.position.y,100,105);
- //delay the tail to have more segmented look
+ 
+ if (timer.isFinished()==true){
+   foodList.add(new Food(foodList.size())); 
+   timer.start();
+  }
+  for (int i =0; i< foodList.size();i++){
+  Food f = foodList.get(i);
+  f.display();
+  }
 }
 void keyPressed(){
   if (key==' '|| key=='='){
-   //increase a variable that controls how long the circles are being drawn
-   //
    
    //yh updown gj leftright
    
