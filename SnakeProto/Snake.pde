@@ -67,4 +67,13 @@ class Snake{
   position.add(velocity);
   //what if the object added to the history list is the position as well as an additional
   }
+  
+  boolean intersecting(Food F){
+   float distance = dist(position.x,position.y,F.position.x,F.position.y);
+   if (distance < (size + F.size)/2){
+     return true;
+   }else{
+   return false;
+  }
+  }
 }

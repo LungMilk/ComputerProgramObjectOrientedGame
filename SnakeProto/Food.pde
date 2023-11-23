@@ -8,16 +8,19 @@ class Food {
   //30. Write a constructor function with parameters */
   color colorC;
   int numb;
+  int size;
   PVector position;
   Food(int num) {
     position = new PVector(random(width), random(height));
     colorC = color(random(255), random(255), random(255));
     numb=num;
+    size =10;
   }
   void display() {
     rectMode(CENTER);
+    noStroke();
     fill(colorC);
-    rect(position.x, position.y, 10, 10);
+    rect(position.x, position.y, size, size);
     println(numb);
   }
 }

@@ -16,9 +16,28 @@ int xDirect;
 int yDirect;
 int bodylimit;
 
+/*
+milestone 2 
+-intersections of the snake with the food -Done
+-checks for the end state and starting state
+-link food amount to the food eaten
+-add menu screen and end screen
+
+Problem 
+-the only way to have an end state is to have an instance where the player dies to the other player
+I could have it in such a way that the snakelist(0) is the only one checked against the other entity so maybe i could have either barriers to avoid 
+or the other player could be the instance
+-food could get the player so large they take up the whole screen as it is both width and length but width is more noticable
+to do so we must do what
+create the snake controls to be managed by either player 1 or 2 and give them identities
+--hard to see the direction the player is going 
+add an arrow or face that always positions themselves in teh direction opposite the previous position or rotates depending on the direction
+*/
+
 void setup(){
   size(400,400);
   snakelist.add(snake.position);
+  foodList.add(new Food(1));
    timer = new Timer(frequency);
  timer.start();
 }
@@ -26,7 +45,15 @@ void setup(){
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
 void draw(){
  background(255);
+ 
  snake.move();
+ for (int i = 0;i <foodList.size();i++){
+ if (snake.intersecting(foodList.get(i))){
+   bodylimit++;
+   foodList.remove(i);
+   println("YumYum");
+ }
+ }
  snake.display();
  textSize(10);
  fill(0);
@@ -54,6 +81,8 @@ void keyPressed(){
   
   switch(key){
     //question how could i handle movment for two characters as hard coded individuals for the joystick
+    //have the keys as variables that are passed as parameters to the different entities as well as identity variable
+    //have the goUp booleans handled in the =snake
    case 'w':
    goUp = true;
      break;
