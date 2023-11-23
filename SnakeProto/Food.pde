@@ -10,6 +10,7 @@ class Food {
   int numb;
   int size;
   PVector position;
+  //rework its value to be randomized within the global variables 
   Food(int num) {
     position = new PVector(random(width), random(height));
     colorC = color(random(255), random(255), random(255));
@@ -21,6 +22,6 @@ class Food {
     noStroke();
     fill(colorC);
     rect(position.x, position.y, size, size);
-    println(numb);
+    //println(numb);
   }
 }

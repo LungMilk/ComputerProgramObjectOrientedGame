@@ -1,0 +1,84 @@
+Milestone 1 skills that are in the code as of 
+11/22/2023
+
+\****/ means this has been done or is in the code (for specific commands in the item)
+\\\\ means the skill has been done
+
+Shapes
+\\\\1.line, \elipse/, \rect/, triangle, quad, arc, curve -- ellipse,rect have been used to draw the snake and food icons
+\\\\2.\fill/,\stroke/,strokeWeight,noFill,noStroke,color -- Fill,noStroke and color have been used for the snake and food grapgics
+\\\\3.Modes: Corner,Corners,\Center/,Radius -- center was used for the snake and foods spawn and position for the graphics
+
+System:
+\\\\4. \setup()/, \draw()/ -- both used to make the system start and draw graphics
+\\\\5. \background()/, \random()/, noise() -- random() is used for the position of the food once intitalized as well as its color
+\\\\6. \constrain()/, dist() - Constrain() is used to limit snake.size to the bodylimit
+\\\\7. \keyPressed()/, \keyReleased()/, \keyPressed/, mousePressed(),   -- Keypressed(), keyReleased() are used for the direction of the snakes movement
+mousePressed
+\\\\8. increment operators: \++/, +=, --, -=, *=, /=   -- used with bodylimit++ to increase the visible length of the snake
+\\\\9. \declare and use a local variable/ -- used throughout with the snake and food objects like size or color
+\\\\10. declare and use a global variable -- the arraylists for the snake and food objects are global as well as Bodylimit, frequency,bodylimit and the booleans for direction
+
+Debugging
+11. println(),stop() -- 
+
+Control flow
+\\\\12. \conditional statements: if, else if, else/ -- if statements are used for the timer to spawn new food, if is used to check if the direction is correct with booleans within snake
+\\\\13. Boolean expressions: \==/, >=, <=, \>/, \</, !=  -- < is used in for loops to chekc if the loop still runs Ex. the Snake.display() where a for loop is dependant on i< snakelist.size()
+14. Logical operators: &&, || --
+\\\\15. \switch statement/ -- used for the movement keys and the seperate cases for the directions depening on the key pressed
+
+Loops
+\\\\16. \for loop/, while loop -- for loop used with displaying multiple objects like the food as well as all of the segments on the snake
+17. A nested loop
+\\\\18. break -- used in the switch case movement code to only count the single movement
+\\\\19. \What’s the difference between a for loop and a while loop?/ - a for loop will loop based on a condition with an incrementing parameter (often i) that is declared and modified after each loop. A while loop will go forever if the conditional state is true and not run if it is false.
+								so, for loops can be set to loop a specific amount of times where as a while loop will operate until the condition in not met.
+Functions
+\\\\20. \Declare & call a function with no parameters and no return type/ -- Snake and food each have a display with snake having a move. each has no return type and expect no parameters. they are called during the draw function to update the position and draw their respective shapes
+21. Declare & call a function with a return type --
+\\\\22. \What’s the difference between parameters and arguments?/ -- Parameters are variables defined when the function is created, while arguments are values declared or passed when a function is called. So parameters are a functions variables that can be altered while arguments are values passed that are then used in the functions process
+23. Pass by copy (value): declare and use a function that takes int, -- 
+float, char, etc as an argument
+24. Pass by reference (objects): declare and use a function that -- 
+
+Classes/objects
+\\\\25. \What’s the difference between a class and an object?/ -- A class is the logical information that can be referenced as an object where as an object is the physical entity of a class.
+\\\\26. \What is a constructor function? What does it do and when?/ --a constructor function creates the entity of a class. It sets the properties of the new object when the class is initialized
+\\\\27. \Why should each class have its own tab in Processing?/ -- having their own tab allows for easier modifications and isolations for debugging to create an easy method of understanding and identification of classes.
+\\\\28. \Write a class with a constructor function/ -- each of the classes; Food,Snake & timer, each have their own constructor functions
+\\\\29. \Use the keyword new to instantiate an object/ -- new is used for new food,timer,snake and PVectors used throughout the program
+\\\\30. \Write a constructor function with parameters/ -- snake and food ahve their parameters intitialized in their respective constructor functions
+
+Lists
+\\\\31. \What’s the difference between an array and an ArrayList?/ -- Arrays are a data structure initialized with a fixed length where arraylist is a variable length structure. 
+								Array lists are able to be modified in program while it is operating while an array is limited to its initial length.
+\\\\32. \Why would you want to go through a list backwards,  /     -- When you want to remove the final items in a list or delete the objects at the end. Ex. 
+decrementing the index?						The first to be removed would be the last
+33. Initialize and populate an array
+\\\\34. \Initialize and populate an ArrayList/		     -- ArrayList is used for the Food and Snake each numbering the numerous objects in the program; for food it is the number of objects, for Snake it is the length of body segments
+\\\\35. \Manage a set of objects with an array or ArrayList/	     -- Foodlist manages the object of Food and each of their respective objects
+\\\\36. Use an ArrayList method: \size()/, \get()/, \remove()/, contains() -- size() is used for conditional statement to draw the amount of body segments, Get() is used to retireve the snakes previous positions and remove() is used to ensure their is only a set limit of remebered positions as well as to remove food after it was eaten
+
+Vectors
+\\\\37. \When should you use PVector instead of float variables?/ -- PVectors can be used for more complex equations and functions in processing like log() and can contain numerous values that are called through do syntax of the vector
+\\\\38. \Use the PVector class/ 				    -- PVector is used as both the position of the food and the position of the snake
+39. Do some basic physics: use \position/, \velocity/, and acceleration -- position and velocity are used to alter the position of the snake
+(due to gravity) vectors
+\\\\40. \Find the direction and distance between two points/ -- used in the intersection checker where it compares the distance between the snakes head position and the foods within the limit of the two "radius's"
+41. Create a random 2D vector
+\\\\42. \What is a normalized vector, why is it useful?/     -- normalizing a vector constrains the value to 1. An intance where this is useful wouyld be when calculating diagnal 2d movement normalizing the distance moved will keep the speed as 1 making the speed uniform in all directions
+43. Using the Processing documentation look up a method in the -- have not done this
+PVector class that’s new to you and use it in your code.
+
+Nice to Know (optional)
+\\\\44. \Use a timer/ -- there is now a timer for the food spawn rate
+45. Switch between “game states” (eg grounded/jumping) using
+conditional statements
+46. Make a button or toggle switch with a roll-over highlight (color
+or size change)
+47. Create a drag & drop object
+48. Do animation with images (spritesheet or individual files)
+49. Use collision detection between object 
+50. Use the Game Control Plus controller library to get joystick or
+gamepad input
