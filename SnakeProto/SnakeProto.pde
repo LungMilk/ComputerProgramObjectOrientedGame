@@ -16,6 +16,9 @@ boolean goRight;
 ArrayList<PVector> snakelist = new ArrayList<PVector>();
 ArrayList<Food> foodList = new ArrayList<Food>();
 
+color[] SnakeColors = new color[8];
+
+
 Timer timer;
 int frequency = 2000;
 
@@ -49,17 +52,24 @@ void setup(){
    timer = new Timer(frequency);
  timer.start();
  
- 
+ SnakeColors[0] = color(255,0,0);
+SnakeColors[1] = color(255,0,180);
+SnakeColors[2] = color(255,0,255);
+SnakeColors[3] = color(0,0,255);
+SnakeColors[4] = color(0,255,255);
+SnakeColors[5] = color(0,255,0);
+SnakeColors[6] = color(255,255,0);
+SnakeColors[7] = color(255,180,0);
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
 void draw(){
  background(255);
  if (startState){
-   
+   start.display();
  }
  if (endState){
-   
+   end.display();
  }
  else{
    
@@ -98,12 +108,17 @@ void keyPressed(){
   }
   
   if (key == 'e'){
-    start.display();
+    startState = true;
+    endState = false;
   }
   if (key== 's'){
-    end.display();
+    endState = true;
+    startState = false;
   }
-  
+  if (key== 'r'){
+    endState = false;
+    startState = false;
+  }
   switch(key){
     //question how could i handle movment for two characters as hard coded individuals for the joystick
     //have the keys as variables that are passed as parameters to the different entities as well as identity variable
