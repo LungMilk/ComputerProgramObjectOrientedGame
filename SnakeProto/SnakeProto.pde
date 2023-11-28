@@ -1,5 +1,12 @@
 Snake snake = new Snake();
 Snake snake2 = new Snake();
+
+endScreen end = new endScreen();
+startScreen start = new startScreen();
+
+boolean startState;
+boolean endState;
+
 boolean goUp;
 boolean goDown;
 boolean goLeft;
@@ -8,6 +15,7 @@ boolean goRight;
 //the list is the recorded history for the single snake
 ArrayList<PVector> snakelist = new ArrayList<PVector>();
 ArrayList<Food> foodList = new ArrayList<Food>();
+
 Timer timer;
 int frequency = 2000;
 
@@ -40,12 +48,22 @@ void setup(){
   foodList.add(new Food(1));
    timer = new Timer(frequency);
  timer.start();
+ 
+ 
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
 void draw(){
  background(255);
- 
+ if (startState){
+   
+ }
+ if (endState){
+   
+ }
+ else{
+   
+ }
  snake.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
@@ -77,6 +95,13 @@ void keyPressed(){
    bodylimit++;
    println(snakelist.size());
    println(bodylimit);
+  }
+  
+  if (key == 'e'){
+    start.display();
+  }
+  if (key== 's'){
+    end.display();
   }
   
   switch(key){
