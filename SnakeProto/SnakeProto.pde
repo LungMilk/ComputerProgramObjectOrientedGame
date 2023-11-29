@@ -4,8 +4,10 @@ Snake snake2 = new Snake();
 endScreen end = new endScreen();
 startScreen start = new startScreen();
 
+boolean colorChange;
 boolean startState;
 boolean endState;
+boolean gameState;
 
 boolean goUp;
 boolean goDown;
@@ -60,21 +62,23 @@ SnakeColors[4] = color(0,255,255);
 SnakeColors[5] = color(0,255,0);
 SnakeColors[6] = color(255,255,0);
 SnakeColors[7] = color(255,180,0);
+gameState = false;
+endState = false;
+startState = true;
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
 void draw(){
- background(255);
  if (startState){
+   start.colorUpdate();
    start.display();
  }
  if (endState){
    end.display();
  }
- else{
-   
- }
- snake.move();
+ if (gameState==true){
+   background(255);
+   snake.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
    bodylimit++;
@@ -96,8 +100,17 @@ void draw(){
   Food f = foodList.get(i);
   f.display();
   }
+ }
+ 
 }
 void keyPressed(){
+  if (key=='c'){
+    colorChange = true;
+  }
+  if (key=='v'){
+    gameState = true;
+  }
+  
   if (key==' '|| key=='='){
    
    //yh updown gj leftright
