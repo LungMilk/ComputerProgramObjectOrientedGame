@@ -1,13 +1,17 @@
 class startScreen{
-  int colorIndex;
   
   
   startScreen(){
-    int colorIndex = 0;
+    colorIndex = 0;
     
   }
   void display(){
     background(0);
+    
+    fill(255);
+    textSize(40);
+    text("Untitled Snake Game",25,100);
+    
     fill(SnakeColors[colorIndex]);
     ellipse(width/2,height/2,50,50);
   }

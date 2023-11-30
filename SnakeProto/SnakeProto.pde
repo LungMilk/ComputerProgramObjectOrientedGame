@@ -1,9 +1,3 @@
-Snake snake = new Snake();
-Snake snake2 = new Snake();
-
-endScreen end = new endScreen();
-startScreen start = new startScreen();
-
 boolean colorChange;
 boolean startState;
 boolean endState;
@@ -14,12 +8,19 @@ boolean goDown;
 boolean goLeft;
 boolean goRight;
 
+int colorIndex;
+
 //the list is the recorded history for the single snake
 ArrayList<PVector> snakelist = new ArrayList<PVector>();
 ArrayList<Food> foodList = new ArrayList<Food>();
 
 color[] SnakeColors = new color[8];
 
+Snake snake = new Snake();
+//Snake snake2 = new Snake();
+
+endScreen end = new endScreen();
+startScreen start = new startScreen();
 
 Timer timer;
 int frequency = 2000;

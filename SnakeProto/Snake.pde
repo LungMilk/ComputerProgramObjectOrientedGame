@@ -15,11 +15,13 @@ class Snake{
   int size;
   float speed = 8;
   PVector positionSnake;
+  color snakeColor;
   
   Snake(){
     positionSnake = new PVector(width/2,height/2);
     velocity = new PVector(0,0);
     position = new PVector(200,200);
+    
   }
   
   void display(){
@@ -34,7 +36,7 @@ class Snake{
     ellipseMode(CENTER);
     PVector s = snakelist.get(i);
     stroke(255,100,100);
-    fill(255,0,0);
+    fill(SnakeColors[colorIndex]);
     size = snakelist.size()/2 + 10;
     ellipse(s.x,s.y,size,size);
     }
