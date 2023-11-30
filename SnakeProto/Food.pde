@@ -6,6 +6,9 @@ class Food {
   //28. Write a class with a constructor function
   //29. Use the keyword new to instantiate an object
   //30. Write a constructor function with parameters */
+  
+  //have a random 2d vector and magnitude of it equals its value??
+  //normalizing a vector is the new method in the processing documentation!!!
   color colorC;
   int numb;
   int size;

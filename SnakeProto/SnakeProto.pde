@@ -1,3 +1,15 @@
+//adding joystick funcitonality means that the player should be able to choose one or tow players
+/*
+major buttons 1,2 both start
+
+3,4 could be maybe a short boost?
+
+i think one player could have a snake that bounces off of the walls 
+
+player 1 control scheme
+up,left,right,down
+*/
+
 boolean colorChange;
 boolean startState;
 boolean endState;
@@ -11,13 +23,12 @@ boolean goRight;
 int colorIndex;
 
 //the list is the recorded history for the single snake
-ArrayList<PVector> snakelist = new ArrayList<PVector>();
 ArrayList<Food> foodList = new ArrayList<Food>();
 
 color[] SnakeColors = new color[8];
 
-Snake snake = new Snake();
-//Snake snake2 = new Snake();
+Snake snake = new Snake(1);
+Snake snake2 = new Snake(2);
 
 endScreen end = new endScreen();
 startScreen start = new startScreen();
@@ -32,7 +43,6 @@ int bodylimit;
 
 void setup(){
   size(400,400);
-  snakelist.add(snake.position);
   foodList.add(new Food(1));
    timer = new Timer(frequency);
  timer.start();
@@ -62,6 +72,7 @@ void draw(){
  if (gameState==true){
    background(255);
    snake.move();
+   snake2.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
    bodylimit++;
@@ -69,11 +80,13 @@ void draw(){
    println("YumYum");
  }
  }
+ //currently they both exist over one another
  snake.display();
+ snake2.display();
  textSize(10);
  fill(0);
- text("x " + snake.position.x,100,100);
- text("y " + snake.position.y,100,105);
+ text("x " + snake2.position.x,100,100);
+ text("y " + snake2.position.y,100,105);
  
  if (timer.isFinished()==true){
    foodList.add(new Food(foodList.size())); 
@@ -99,7 +112,7 @@ void keyPressed(){
    //yh updown gj leftright
    
    bodylimit++;
-   println(snakelist.size());
+   println(snake2.snakelist.size());
    println(bodylimit);
   }
   
