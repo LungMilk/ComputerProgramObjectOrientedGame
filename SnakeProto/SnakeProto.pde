@@ -30,24 +30,6 @@ int xDirect;
 int yDirect;
 int bodylimit;
 
-/*
-milestone 2 
--intersections of the snake with the food -Done
--checks for the end state and starting state
--link food amount to the food eaten
--add menu screen and end screen
-
-Problem 
--the only way to have an end state is to have an instance where the player dies to the other player
-I could have it in such a way that the snakelist(0) is the only one checked against the other entity so maybe i could have either barriers to avoid 
-or the other player could be the instance
--food could get the player so large they take up the whole screen as it is both width and length but width is more noticable
-to do so we must do what
-create the snake controls to be managed by either player 1 or 2 and give them identities
---hard to see the direction the player is going 
-add an arrow or face that always positions themselves in teh direction opposite the previous position or rotates depending on the direction
-*/
-
 void setup(){
   size(400,400);
   snakelist.add(snake.position);
