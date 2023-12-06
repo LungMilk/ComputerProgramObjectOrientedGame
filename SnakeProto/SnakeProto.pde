@@ -1,4 +1,5 @@
 //adding joystick funcitonality means that the player should be able to choose one or tow players
+
 /*
 major buttons 1,2 both start
 
