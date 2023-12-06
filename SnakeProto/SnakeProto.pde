@@ -70,7 +70,6 @@ void draw(){
    start.display();
  }
  if (endState){
-   println("endscreem");
    end.display();
  }
  if (gameState==true){

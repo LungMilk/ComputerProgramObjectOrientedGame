@@ -11,12 +11,17 @@ class BouncingBall{
  
  BouncingBall(int tempw){
    position = PVector.random2D();
-   position.add(snake.position);
+   position.mult(10);
    
    position.z = 0;
    
    wide = tempw;
  }
+ 
+ void gravity(){
+    position.z = position.z +gravity;
+  }
+  
   void display(){
     fill(255);
     noStroke();
@@ -31,7 +36,5 @@ class BouncingBall{
      position.y = height;
     }
   }
-  void gravity(){
-    position.z = position.z +gravity;
-  }
+  
 }
