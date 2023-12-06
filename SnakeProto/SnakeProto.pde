@@ -34,7 +34,7 @@ Snake snake2 = new Snake(2);
 endScreen end = new endScreen();
 startScreen start = new startScreen();
 
-BouncingBall BBall = new BouncingBall(10);
+//bouncing ball will be representative of the losers snake 
 
 Timer timer;
 int frequency = 2000;
