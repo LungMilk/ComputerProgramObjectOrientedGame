@@ -34,6 +34,8 @@ Snake snake2 = new Snake(2);
 endScreen end = new endScreen();
 startScreen start = new startScreen();
 
+BouncingBall BBall = new BouncingBall(10);
+
 Timer timer;
 int frequency = 2000;
 
@@ -68,6 +70,7 @@ void draw(){
    start.display();
  }
  if (endState){
+   println("endscreem");
    end.display();
  }
  if (gameState==true){
@@ -120,14 +123,18 @@ void keyPressed(){
   if (key == 'e'){
     startState = true;
     endState = false;
+    gameState = false;
   }
-  if (key== 's'){
+  if (key== 't'){
+    
     endState = true;
     startState = false;
+    gameState = false;
   }
   if (key== 'r'){
     endState = false;
     startState = false;
+    gameState = false;
   }
   switch(key){
     //question how could i handle movment for two characters as hard coded individuals for the joystick
