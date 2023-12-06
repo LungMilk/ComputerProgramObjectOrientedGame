@@ -1,12 +1,12 @@
 class endScreen{
- 
+ //i want the position of the balls to be somewhat randon
   
   BouncingBall[] BBalls = new BouncingBall[100];
   
   
   endScreen(){
     for (int i = 0;i<BBalls.length;i++){
-    BBalls[i] = new BouncingBall(10);
+    BBalls[i] = new BouncingBall(int(random(50)));
     }
   }
   

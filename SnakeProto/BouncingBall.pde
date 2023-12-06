@@ -11,7 +11,7 @@ class BouncingBall{
  
  BouncingBall(int tempw){
    position = PVector.random2D();
-   position.mult(10);
+   position.mult(random(400));
    
    position.z = 0;
    
@@ -23,7 +23,7 @@ class BouncingBall{
   }
   
   void display(){
-    fill(255);
+    fill(SnakeColors[colorIndex]);
     noStroke();
     ellipse(position.x, position.y,wide,wide);
   }
