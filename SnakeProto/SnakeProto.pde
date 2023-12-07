@@ -84,6 +84,8 @@ void draw(){
    foodList.remove(i);
    println("YumYum");
  }
+ }
+ for (int i = 0;i <foodList.size();i++){
  if (snake2.intersecting(foodList.get(i))){
    snake2.bodylimit++;
    foodList.remove(i);
@@ -93,8 +95,8 @@ void draw(){
  for (int i = 0; i< snake.bodylimit-1;i++){
    //this only works for the head of the snake
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
-     println("haha");
-
+     println("snake2 lost");
+     stop();
    }
    
  }
@@ -102,7 +104,8 @@ void draw(){
  for (int i = 0; i< snake2.bodylimit-1;i++){
    //this only works for the head of the snake
    if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
-
+     println("snake 1 lost");
+     stop();
    }
    
  }
