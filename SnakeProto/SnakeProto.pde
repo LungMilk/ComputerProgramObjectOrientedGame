@@ -40,10 +40,6 @@ Timer timer;
 int frequency = 2000;
 
 
-int xDirect;
-int yDirect;
-int bodylimit;
-
 void setup(){
   size(400,400);
   foodList.add(new Food(1));
@@ -73,17 +69,29 @@ void draw(){
    end.display();
  }
  if (gameState==true){
+   
+   
    background(255);
    snake.move();
    snake2.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
-   bodylimit++;
+   snake.bodylimit++;
    foodList.remove(i);
    println("YumYum");
  }
  }
- //currently they both exist over one another
+ 
+ //snake 2 will check its position against each snakes position in its history as well
+ for (int i = 0; i< snake.bodylimit;i++){
+   //this only works for the head of the snake
+   if (snake2.intersectingSnakeBody(snake)){
+     println("snake2 is over 1");
+     //break is only from this block of code
+    break; 
+   }
+   
+ }
  snake.display();
  snake2.display();
  textSize(10);
@@ -99,6 +107,9 @@ void draw(){
   Food f = foodList.get(i);
   f.display();
   }
+  
+  
+  
  }
  
 }
@@ -116,7 +127,7 @@ void keyPressed(){
    
    //yh updown gj leftright
    
-   bodylimit++;
+   snake.bodylimit++;
   }
   
   if (key == 'e'){

@@ -11,6 +11,8 @@ class Snake{
   so the position is recorded if normalized then the speed of the starting position is faster
   */
   ArrayList<PVector> snakelist = new ArrayList<PVector>();
+  int bodylimit = 1;
+  
   
   PVector position;
   PVector velocity;
