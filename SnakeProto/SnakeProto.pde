@@ -22,11 +22,14 @@ boolean goLeft;
 boolean goRight;
 
 int colorIndex;
+int colorIndex2;
 
 //the list is the recorded history for the single snake
 ArrayList<Food> foodList = new ArrayList<Food>();
 
 color[] SnakeColors = new color[8];
+color[] SnakeColor2 = new color[8];
+
 
 Snake snake = new Snake(1);
 Snake snake2 = new Snake(2);
@@ -54,6 +57,16 @@ SnakeColors[4] = color(0,255,255);
 SnakeColors[5] = color(0,255,0);
 SnakeColors[6] = color(255,255,0);
 SnakeColors[7] = color(255,180,0);
+
+SnakeColor2[0] = color(255,0,0);
+SnakeColor2[1] = color(255,0,180);
+SnakeColor2[2] = color(255,0,255);
+SnakeColor2[3] = color(0,0,255);
+SnakeColor2[4] = color(0,255,255);
+SnakeColor2[5] = color(0,255,0);
+SnakeColor2[6] = color(255,255,0);
+SnakeColor2[7] = color(255,180,0);
+
 gameState = false;
 endState = false;
 startState = true;
@@ -74,8 +87,8 @@ void draw(){
    background(255);
    snake.move();
    snake2.move();
-   snake.display();
-   snake2.display();
+   snake.display(SnakeColors[colorIndex]);
+   snake2.display(SnakeColor2[colorIndex2]);
  
  
  for (int i = 0;i <foodList.size();i++){

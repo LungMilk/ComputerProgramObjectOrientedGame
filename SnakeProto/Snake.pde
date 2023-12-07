@@ -22,7 +22,6 @@ class Snake{
   float directionY = 0;
   
   PVector positionSnake;
-  color snakeColor;
   int identity;
   
   Snake(int p){
@@ -32,7 +31,7 @@ class Snake{
     identity = p;
   }
   
-  void display(){
+  void display(color snakeColor){
     PVector positionSnakeHistory = new PVector (position.x,position.y);
     
     snakelist.add(positionSnakeHistory);
@@ -46,7 +45,7 @@ class Snake{
     ellipseMode(CENTER);
     PVector s = snakelist.get(i);
     noStroke();
-    fill(SnakeColors[colorIndex]);
+    fill(snakeColor);
     size = snakelist.size()/2 + 10;
     ellipse(s.x,s.y,size,size);
     }

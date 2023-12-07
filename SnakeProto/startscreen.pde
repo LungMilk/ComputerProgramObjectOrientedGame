@@ -13,7 +13,10 @@ class startScreen{
     text("Untitled Snake Game",25,100);
     
     fill(SnakeColors[colorIndex]);
-    ellipse(width/2,height/2,50,50);
+    ellipse(width/2 - 70,height/2 - 70,50,50);
+    
+    fill(SnakeColor2[colorIndex2]);
+    ellipse(width/2+ 70,height/2 + 70,50,50);
   }
   void colorUpdate(){
     //(mouseX <= (width/2+25) && mouseX >= (width/2-25)) && 
