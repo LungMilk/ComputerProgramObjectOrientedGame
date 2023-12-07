@@ -74,33 +74,32 @@ void draw(){
    background(255);
    snake.move();
    snake2.move();
+   snake.display();
+   snake2.display();
+ 
+ 
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
    snake.bodylimit++;
    foodList.remove(i);
    println("YumYum");
  }
- }
- for (int i = 0;i <foodList.size();i++){
  if (snake2.intersecting(foodList.get(i))){
    snake2.bodylimit++;
    foodList.remove(i);
    println("YumYum");
  }
  }
- 
- snake.display();
- snake2.display();
- 
- 
- for (int i = 0; i< snake.bodylimit;i++){
+ for (int i = 0; i< snake.bodylimit-1;i++){
    //this only works for the head of the snake
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
+     println("haha");
 
    }
    
  }
- for (int i = 0; i< snake2.bodylimit;i++){
+ 
+ for (int i = 0; i< snake2.bodylimit-1;i++){
    //this only works for the head of the snake
    if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
 
@@ -121,12 +120,11 @@ void draw(){
   Food f = foodList.get(i);
   f.display();
   }
-  
-  
-  
  }
  
 }
+
+
 void keyPressed(){
   //println(key + ":" + keyCode);
   
