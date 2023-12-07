@@ -103,6 +103,8 @@ void draw(){
  
 }
 void keyPressed(){
+  println(key + ":" + keyCode);
+  
   if (key=='c'){
     colorChange = true;
   }
@@ -133,42 +135,63 @@ void keyPressed(){
     startState = false;
     gameState = false;
   }
-  switch(key){
+  switch(keyCode){
     //question how could i handle movment for two characters as hard coded individuals for the joystick
     //have the keys as variables that are passed as parameters to the different entities as well as identity variable
     //have the goUp booleans handled in the =snake
-   case 'w':
+
+
+//arcade cab keycodes and others
+/*
+up arr: 38
+down arr 40
+left arr37
+right arr 39
+
+2nd joy movem
+r82
+f70
+d68
+g71
+
+w87
+s83
+a65
+d68
+*/
+
+   case 38:
    goUp = true;
      break;
      
-    case's':
+    case 40:
     goDown = true;
     break;
     
-    case 'a':
+    case 37:
     goLeft = true;
      break;
      
-     case 'd':
+     case 39:
    goRight = true;
      break;
   }
 }
 void keyReleased(){
-  switch(key){
-   case 'w':
+  switch(keyCode){
+  case 38:
    goUp = false;
      break;
      
-    case's':
+    case 40:
     goDown = false;
     break;
     
-    case 'a':
+    case 37:
     goLeft = false;
      break;
      
-     case 'd':
+     case 39:
    goRight = false;
      break;
   }
