@@ -46,6 +46,66 @@ class Snake{
     ellipse(s.x,s.y,size,size);
     }
   }
+  void direction(int code){
+    //arcade cab keycodes and others
+/*
+up arr: 38
+down arr 40
+left arr37
+right arr 39
+
+2nd joy movem
+r82
+f70
+d68
+g71
+
+w87
+s83
+a65
+d68
+*/
+    
+    
+    switch(code){
+  case 38:
+   goUp = true;
+     break;
+     
+    case 40:
+    goDown = true;
+    break;
+    
+    case 37:
+    goLeft = true;
+     break;
+     
+     case 39:
+   goRight = true;
+     break;
+  }
+  }
+  void stop(int code) {
+    
+    switch(code){
+  case 38:
+   goUp = false;
+     break;
+     
+    case 40:
+    goDown = false;
+    break;
+    
+    case 37:
+    goLeft = false;
+     break;
+     
+     case 39:
+   goRight = false;
+     break;
+  }
+  
+  }
   void move(){
     //there is no straight down movement
     if (position.x >= width -size/2){
