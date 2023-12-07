@@ -75,7 +75,7 @@ void draw(){
  if (gameState==true){
    background(255);
    snake.move();
-   snake2.move();
+   //snake2.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
    bodylimit++;
@@ -115,8 +115,6 @@ void keyPressed(){
    //yh updown gj leftright
    
    bodylimit++;
-   println(snake2.snakelist.size());
-   println(bodylimit);
   }
   
   if (key == 'e'){

@@ -48,6 +48,17 @@ class Snake{
   }
   void move(){
     //there is no straight down movement
+    if (position.x >= width -size/2){
+      position.x = width -size/2;
+    }else if(position.x <= 0 +size/2){
+      position.x = 0 +size/2;
+    }
+    if (position.y >= height -size/2){
+      position.y = height -size/2;
+    }else if(position.y <= 0 +size/2){
+      position.y = 0 +size/2;
+    }
+    
   if(keyPressed){
     if(goUp){
      velocity.y= -speed;
@@ -74,7 +85,7 @@ class Snake{
   position.add(velocity);
   //what if the object added to the history list is the position as well as an additional
   }
-  
+
   boolean intersecting(Food F){
    float distance = dist(position.x,position.y,F.position.x,F.position.y);
    if (distance < (size + F.size)/2){
