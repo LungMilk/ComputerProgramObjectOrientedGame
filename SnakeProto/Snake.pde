@@ -193,9 +193,9 @@ d68
   }
 
 //this is it checking the position to a given object
-boolean intersectingSnakeBody(Snake otherS){
-  float distance = dist(position.x, position.y, otherS.position.x, otherS.position.y);
-  if (distance < (size + otherS.size)/2){
+boolean intersectingSnakeBody(PVector otherS, float otherSize){
+  float distance = dist(position.x, position.y, otherS.x, otherS.y);
+  if (distance < (size + otherSize)/2){
    return true; 
   }else{
    return false; 

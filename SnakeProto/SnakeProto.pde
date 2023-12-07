@@ -82,18 +82,20 @@ void draw(){
  }
  }
  
+ snake.display();
+ snake2.display();
+ 
  //snake 2 will check its position against each snakes position in its history as well
  for (int i = 0; i< snake.bodylimit;i++){
    //this only works for the head of the snake
-   if (snake2.intersectingSnakeBody(snake)){
+   if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
      println("snake2 is over 1");
      //break is only from this block of code
     break; 
    }
    
  }
- snake.display();
- snake2.display();
+ 
  textSize(10);
  fill(0);
  text("x " + snake.position.x,100,100);
