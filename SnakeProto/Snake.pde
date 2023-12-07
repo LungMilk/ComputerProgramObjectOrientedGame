@@ -189,4 +189,16 @@ d68
    return false;
   }
   }
+
+//this is it checking the position to a given object
+boolean intersectingSnakeBody(Snake otherS){
+  float distance = dist(position.x, position.y, otherS.position.x, otherS.position.y);
+  if (distance < (size + otherS.size)/2){
+   return true; 
+  }else{
+   return false; 
+  }
+}
+
+//this is the bracket for the snake class V
 }
