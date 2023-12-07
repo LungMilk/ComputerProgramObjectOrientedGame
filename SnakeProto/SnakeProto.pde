@@ -75,7 +75,7 @@ void draw(){
  if (gameState==true){
    background(255);
    snake.move();
-   //snake2.move();
+   snake2.move();
  for (int i = 0;i <foodList.size();i++){
  if (snake.intersecting(foodList.get(i))){
    bodylimit++;
@@ -88,8 +88,8 @@ void draw(){
  snake2.display();
  textSize(10);
  fill(0);
- text("x " + snake2.position.x,100,100);
- text("y " + snake2.position.y,100,105);
+ text("x " + snake.position.x,100,100);
+ text("y " + snake.position.y,100,105);
  
  if (timer.isFinished()==true){
    foodList.add(new Food(foodList.size())); 
@@ -103,7 +103,7 @@ void draw(){
  
 }
 void keyPressed(){
-  println(key + ":" + keyCode);
+  //println(key + ":" + keyCode);
   
   if (key=='c'){
     colorChange = true;
@@ -130,14 +130,17 @@ void keyPressed(){
     startState = false;
     gameState = false;
   }
-  if (key== 'r'){
+  if (key== 'w'){
     endState = false;
     startState = false;
     gameState = false;
   }
   snake.direction(keyCode);
+  snake2.direction(keyCode);
+  println("buttonpressed" + millis());
 }
 
 void keyReleased(){
   snake.stop(keyCode);
+  snake2.direction(keyCode);
 }

@@ -16,6 +16,9 @@ class Snake{
   PVector velocity;
   int size;
   float speed = 8;
+  float directionX = 0;
+  float directionY = 0;
+  
   PVector positionSnake;
   color snakeColor;
   int identity;
@@ -66,45 +69,94 @@ a65
 d68
 */
     
-    
+    if (identity == 1){
     switch(code){
   case 38:
-   goUp = true;
+
+   directionY = -1;
      break;
      
     case 40:
-    goDown = true;
+ 
+    directionY = 1;
     break;
     
     case 37:
-    goLeft = true;
+  
+    directionX= -1;
      break;
      
      case 39:
-   goRight = true;
+
+   directionX = 1;
      break;
   }
+  println("my identity is" + identity);
+    }
+    if (identity == 2){
+      switch(code){
+  case 82:
+ directionY = -1;
+     break;
+     
+    case 70:
+  directionY = 1;
+    break;
+    
+    case 68:
+   directionX = -1;
+     break;
+     
+     case 71:
+   directionX = 1;
+     break;
+  }
+    }
+    //having the direcition linked to the speed results in once reduced to zero both speed and dirceiton are non funcitonal
   }
   void stop(int code) {
-    
+    if (identity == 1){
     switch(code){
   case 38:
    goUp = false;
+   directionY = 0;
      break;
      
     case 40:
     goDown = false;
+    directionY = 0;
     break;
     
     case 37:
     goLeft = false;
+    directionX = 0;
      break;
      
      case 39:
    goRight = false;
+   directionX = 0;
      break;
   }
-  
+    }
+    if (identity == 2){
+      switch(code){
+  case 82:
+   directionY = 0;
+     break;
+     
+    case 70:
+    directionY = 0;
+    break;
+    
+    case 68:
+    directionX = 0;
+     break;
+     
+     case 71:
+   directionX = 0;
+     break;
+    }
+    }
   }
   void move(){
     //there is no straight down movement
@@ -119,27 +171,10 @@ d68
       position.y = 0 +size/2;
     }
     
-  if(keyPressed){
-    if(goUp){
-     velocity.y= -speed;
-    }
-    else if(goDown){
-     velocity.y= speed;
-    }
-    //else{
-    // velocity.y=0; 
-    //}
-    
-    if(goLeft){
-     velocity.x= -speed;
-    }
-    else if(goRight){
-     velocity.x= speed;
-    }
-    //else{
-    // velocity.x=0; 
-    //}
-  }
+    //speed is worthless as it is normalized
+    velocity.x = velocity.x +speed*directionX;
+    velocity.y = velocity.y +speed*directionY;
+  //velocity is the speed with the speed either being - or + which determines direction
   velocity.normalize();
   //velocity.mult();
   position.add(velocity);
