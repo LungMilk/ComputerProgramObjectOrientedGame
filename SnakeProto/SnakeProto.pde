@@ -81,17 +81,29 @@ void draw(){
    println("YumYum");
  }
  }
+ for (int i = 0;i <foodList.size();i++){
+ if (snake2.intersecting(foodList.get(i))){
+   snake2.bodylimit++;
+   foodList.remove(i);
+   println("YumYum");
+ }
+ }
  
  snake.display();
  snake2.display();
  
- //snake 2 will check its position against each snakes position in its history as well
+ 
  for (int i = 0; i< snake.bodylimit;i++){
    //this only works for the head of the snake
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
-     println("snake2 is over 1");
-     //break is only from this block of code
-    break; 
+
+   }
+   
+ }
+ for (int i = 0; i< snake2.bodylimit;i++){
+   //this only works for the head of the snake
+   if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
+
    }
    
  }
@@ -155,5 +167,5 @@ void keyPressed(){
 
 void keyReleased(){
   snake.stop(keyCode);
-  snake2.direction(keyCode);
+  snake2.stop(keyCode);
 }

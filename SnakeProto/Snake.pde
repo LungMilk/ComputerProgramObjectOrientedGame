@@ -74,22 +74,18 @@ d68
     if (identity == 1){
     switch(code){
   case 38:
-
    directionY = -1;
      break;
      
     case 40:
- 
     directionY = 1;
     break;
     
     case 37:
-  
     directionX= -1;
      break;
      
      case 39:
-
    directionX = 1;
      break;
   }
@@ -97,6 +93,7 @@ d68
     }
     if (identity == 2){
       switch(code){
+        
   case 82:
  directionY = -1;
      break;
@@ -120,22 +117,18 @@ d68
     if (identity == 1){
     switch(code){
   case 38:
-   goUp = false;
    directionY = 0;
      break;
      
     case 40:
-    goDown = false;
     directionY = 0;
     break;
     
     case 37:
-    goLeft = false;
     directionX = 0;
      break;
      
      case 39:
-   goRight = false;
    directionX = 0;
      break;
   }
