@@ -22,8 +22,16 @@ class BouncingBall{
     position.z = position.z +gravity;
   }
   
-  void display(){
-    fill(SnakeColors[colorIndex]);
+  void display(int winIdentity){
+    color snakeColor = 0;
+    if (winIdentity==1){
+      snakeColor = SnakeColors[colorIndex];
+    }
+    if (winIdentity==2){
+      snakeColor = SnakeColor2[colorIndex2];
+    }
+    
+    fill(snakeColor,100);
     noStroke();
     ellipse(position.x, position.y,wide,wide);
   }

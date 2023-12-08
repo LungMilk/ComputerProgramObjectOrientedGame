@@ -24,6 +24,8 @@ boolean goRight;
 int colorIndex;
 int colorIndex2;
 
+int winner = 0;
+
 //the list is the recorded history for the single snake
 ArrayList<Food> foodList = new ArrayList<Food>();
 
@@ -79,10 +81,14 @@ void draw(){
    start.display();
  }
  if (endState){
-   end.display();
+   end.display(winner);
  }
  if (gameState==true){
    
+   if(winner>0){
+    gameState=false;
+    endState = true;
+   }
    
    background(255);
    snake.move();
@@ -109,7 +115,8 @@ void draw(){
    //this only works for the head of the snake
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
      println("snake2 lost");
-     stop();
+     winner = 1;
+     println(winner);
    }
    
  }
@@ -118,7 +125,8 @@ void draw(){
    //this only works for the head of the snake
    if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
      println("snake 1 lost");
-     stop();
+     winner = 2;
+     println(winner);
    }
    
  }
