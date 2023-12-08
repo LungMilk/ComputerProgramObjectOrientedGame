@@ -3,7 +3,7 @@ class startScreen{
   
   startScreen(){
     colorIndex = 0;
-    
+    colorIndex2 =1;
   }
   void display(){
     background(0);
@@ -13,20 +13,37 @@ class startScreen{
     text("Untitled Snake Game",25,100);
     
     fill(SnakeColors[colorIndex]);
-    ellipse(width/2 - 70,height/2 - 70,50,50);
+    ellipse(width/2 - 70,height/2,50,50);
     
     fill(SnakeColor2[colorIndex2]);
-    ellipse(width/2+ 70,height/2 + 70,50,50);
+    ellipse(width/2+ 70,height/2,50,50);
   }
   void colorUpdate(){
+ 
     //(mouseX <= (width/2+25) && mouseX >= (width/2-25)) && 
-    if (colorChange ==true){
+    //issue regarding that if player 1 is at zero it will returnit to the position 
+    //3 for player 1 4 for player 2 will cycle through the color index of each colors
+    if (keyPressed){
+      if (key == '3'){
       colorIndex++;
-      if (colorIndex>=8){
-       colorIndex=0; 
+      if(colorIndex ==colorIndex2){
+       colorIndex++; 
       }
-      colorChange=false;
+      if(colorIndex >= SnakeColors.length){
+      colorIndex =0;
     }
+      }
+      if (key == '4'){
+      colorIndex2++;
+      if(colorIndex ==colorIndex2){
+       colorIndex2++; 
+      }
+      if (colorIndex2>=SnakeColor2.length){
+       colorIndex2=0; 
+      }
+      }
+    }
+
   }
   
 }

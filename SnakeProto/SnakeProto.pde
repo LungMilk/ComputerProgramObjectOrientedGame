@@ -48,7 +48,7 @@ void setup(){
   foodList.add(new Food(1));
    timer = new Timer(frequency);
  timer.start();
- 
+ //rework the colors or simply add different ones for each player
  SnakeColors[0] = color(255,0,0);
 SnakeColors[1] = color(255,0,180);
 SnakeColors[2] = color(255,0,255);
