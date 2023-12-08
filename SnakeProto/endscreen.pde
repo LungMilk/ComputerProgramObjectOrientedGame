@@ -23,8 +23,8 @@ class endScreen{
     text("player " + winIdentity + " wins!",90,170);
     
     textSize(20);
-    text("player 1 Length: " + snake.bodylimit,70,250);
-    text("player 2 Length: " + snake2.bodylimit,110,250);
+    text("player 1 Length: " + snake.bodylimit,80,230);
+    text("player 2 Length: " + snake2.bodylimit,80,250);
    
   }
   
