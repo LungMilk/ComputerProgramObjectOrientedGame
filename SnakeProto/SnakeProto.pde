@@ -16,15 +16,10 @@ boolean startState;
 boolean endState;
 boolean gameState;
 
-boolean goUp;
-boolean goDown;
-boolean goLeft;
-boolean goRight;
-
 int colorIndex;
 int colorIndex2;
 
-int winner = 0;
+int winner;
 
 //the list is the recorded history for the single snake
 ArrayList<Food> foodList = new ArrayList<Food>();
@@ -47,9 +42,7 @@ int frequency = 2000;
 
 void setup(){
   size(400,400);
-  foodList.add(new Food(1));
-   timer = new Timer(frequency);
- timer.start();
+  timer = new Timer(frequency);
  //rework the colors or simply add different ones for each player
  SnakeColors[0] = color(255,0,0);
 SnakeColors[1] = color(255,0,180);
@@ -69,9 +62,30 @@ SnakeColor2[5] = color(0,255,0);
 SnakeColor2[6] = color(255,255,0);
 SnakeColor2[7] = color(255,180,0);
 
+restart();
+}
+
+void restart(){
+  winner = 0;
 gameState = false;
 endState = false;
 startState = true;
+colorIndex = 0;
+colorIndex2 = 1;
+
+for(int i = 0; i <foodList.size();i++){
+  foodList.remove(i);
+}
+snake.restart();
+snake2.restart();
+ /*reset list
+ winner = 0;
+ gamestates
+ color index 
+ */
+ 
+  foodList.add(new Food(1));
+  timer.start();
 }
 //issue with how the position is only snapshotted in time and stable
 //possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
@@ -151,18 +165,11 @@ void draw(){
 
 void keyPressed(){
   //println(key + ":" + keyCode);
-  
-  if (key=='c'){
-    colorChange = true;
-  }
-  if (key=='v'){
+  if (key=='1'){
     gameState = true;
   }
-  
   if (key==' '|| key=='='){
-   
    //yh updown gj leftright
-   
    snake.bodylimit++;
   }
   

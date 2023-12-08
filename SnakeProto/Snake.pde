@@ -26,11 +26,14 @@ class Snake{
   
   Snake(int p){
     //positionSnake = new PVector(random(width), random(height));
+    identity = p;
+    restart();
+  }
+  void restart(){
     velocity = new PVector(0,0);
     position = new PVector(random(width), random(height));
-    identity = p;
+    
   }
-  
   void display(color snakeColor){
     PVector positionSnakeHistory = new PVector (position.x,position.y);
     

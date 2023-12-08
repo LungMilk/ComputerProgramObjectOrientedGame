@@ -1,8 +1,5 @@
-class endScreen{
- //i want the position of the balls to be somewhat randon
-  
+class endScreen{  
   BouncingBall[] BBalls = new BouncingBall[100];
-
 
   endScreen(){
     for (int i = 0;i<BBalls.length;i++){
@@ -25,6 +22,10 @@ class endScreen{
     textSize(20);
     text("player 1 Length: " + snake.bodylimit,80,230);
     text("player 2 Length: " + snake2.bodylimit,80,250);
+    
+    if(key=='r'){
+     restart(); 
+    }
    
   }
   
