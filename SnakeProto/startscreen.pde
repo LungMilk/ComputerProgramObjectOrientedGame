@@ -9,9 +9,12 @@ class startScreen{
   void display(){
     background(0);
     
-    for(int i =0 + 5;i<height;i+=5){
-      //noStroke();
-      ellipse(i,100,10,10);
+    for (int y =0 + 5; y<height; y+=10 ){
+    for(int x =0 + 5; x<width; x+=10 ){
+      noStroke();
+      fill(100);
+      ellipse(x,y,10,10);
+    }
     }
     
     fill(255);
