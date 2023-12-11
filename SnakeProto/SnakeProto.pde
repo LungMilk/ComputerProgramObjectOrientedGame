@@ -24,8 +24,7 @@ startScreen start = new startScreen();
 //bouncing ball will be representative of the losers snake 
 
 Timer timer;
-int frequency = 2000;
-
+int frequency = 500;
 
 void setup(){
   size(400,400);
@@ -65,7 +64,7 @@ for(int i = 0; i <foodList.size();i++){
 }
 snake.restart();
 snake2.restart();
-  foodList.add(new Food(1));
+  foodList.add(new Food());
   timer.start();
 }
 //issue with how the position is only snapshotted in time and stable
@@ -91,20 +90,20 @@ void draw(){
    snake.display(SnakeColors[colorIndex]);
    snake2.display(SnakeColor2[colorIndex2]);
  
- 
  for (int i = 0;i <foodList.size();i++){
+   Food f = foodList.get(i);
+  f.display();
+  
  if (snake.intersecting(foodList.get(i))){
    snake.bodylimit++;
    foodList.remove(i);
-   println("YumYum");
- }
  }
  
+ }
  for (int i = 0;i <foodList.size();i++){
  if (snake2.intersecting(foodList.get(i))){
    snake2.bodylimit++;
    foodList.remove(i);
-   println("YumYum");
  }
  }
  for (int i = 0; i< snake.bodylimit-1;i++){
@@ -112,7 +111,6 @@ void draw(){
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
      println("snake2 lost");
      winner = 1;
-     println(winner);
    }
    
  }
@@ -122,18 +120,13 @@ void draw(){
    if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
      println("snake 1 lost");
      winner = 2;
-     println(winner);
    }
    
  }
  
  if (timer.isFinished()==true){
-   foodList.add(new Food(foodList.size())); 
+   foodList.add(new Food()); 
    timer.start();
-  }
-  for (int i =0; i< foodList.size();i++){
-  Food f = foodList.get(i);
-  f.display();
   }
  }
 }

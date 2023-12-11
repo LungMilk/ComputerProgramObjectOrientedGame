@@ -9,6 +9,11 @@ class startScreen{
   void display(){
     background(0);
     
+    for(int i =0 + 5;i<height;i+=5){
+      //noStroke();
+      ellipse(i,100,10,10);
+    }
+    
     fill(255);
     textSize(40);
     text("Untitled Snake Game",25,100);
