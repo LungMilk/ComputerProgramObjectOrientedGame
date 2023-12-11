@@ -21,11 +21,12 @@ class Snake{
   float directionX = 0;
   float directionY = 0;
   
-  PVector positionSnake;
+  
+  
+
   int identity;
   
   Snake(int p){
-    //positionSnake = new PVector(random(width), random(height));
     identity = p;
     restart();
   }
@@ -33,10 +34,14 @@ class Snake{
     velocity = new PVector(0,0);
     position = new PVector(random(width), random(height));
     
+    //reset the different lists and loops
+    bodylimit =1;
+    for (int i =0; i< snakelist.size();i++){
+      snakelist.remove(i);
+    }
   }
   void display(color snakeColor){
     PVector positionSnakeHistory = new PVector (position.x,position.y);
-    
     snakelist.add(positionSnakeHistory);
     
     if (snakelist.size()>bodylimit){

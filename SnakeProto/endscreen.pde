@@ -23,7 +23,7 @@ class endScreen{
     text("player 1 Length: " + snake.bodylimit,80,230);
     text("player 2 Length: " + snake2.bodylimit,80,250);
     
-    if(key=='r'){
+    if(key=='2' || key =='1'){
      restart(); 
     }
    

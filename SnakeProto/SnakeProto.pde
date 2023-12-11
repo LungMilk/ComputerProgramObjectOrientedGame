@@ -1,16 +1,3 @@
-//adding joystick funcitonality means that the player should be able to choose one or tow players
-
-/*
-major buttons 1,2 both start
-
-3,4 could be maybe a short boost?
-
-i think one player could have a snake that bounces off of the walls 
-
-player 1 control scheme
-up,left,right,down
-*/
-
 boolean colorChange;
 boolean startState;
 boolean endState;
@@ -78,12 +65,6 @@ for(int i = 0; i <foodList.size();i++){
 }
 snake.restart();
 snake2.restart();
- /*reset list
- winner = 0;
- gamestates
- color index 
- */
- 
   foodList.add(new Food(1));
   timer.start();
 }
@@ -118,6 +99,7 @@ void draw(){
    println("YumYum");
  }
  }
+ 
  for (int i = 0;i <foodList.size();i++){
  if (snake2.intersecting(foodList.get(i))){
    snake2.bodylimit++;
@@ -145,11 +127,6 @@ void draw(){
    
  }
  
- textSize(10);
- fill(0);
- text("x " + snake.position.x,100,100);
- text("y " + snake.position.y,100,105);
- 
  if (timer.isFinished()==true){
    foodList.add(new Food(foodList.size())); 
    timer.start();
@@ -159,7 +136,6 @@ void draw(){
   f.display();
   }
  }
- 
 }
 
 
@@ -168,27 +144,7 @@ void keyPressed(){
   if (key=='1'){
     gameState = true;
   }
-  if (key==' '|| key=='='){
-   //yh updown gj leftright
-   snake.bodylimit++;
-  }
   
-  if (key == 'e'){
-    startState = true;
-    endState = false;
-    gameState = false;
-  }
-  if (key== 't'){
-    
-    endState = true;
-    startState = false;
-    gameState = false;
-  }
-  if (key== 'w'){
-    endState = false;
-    startState = false;
-    gameState = false;
-  }
   snake.direction(keyCode);
   snake2.direction(keyCode);
   println("buttonpressed" + millis());
