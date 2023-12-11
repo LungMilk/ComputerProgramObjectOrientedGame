@@ -1,19 +1,21 @@
 class startScreen{
   
+  int size = 40;
   int sizeEllipse = 100;
+  
   startScreen(){
     colorIndex = 0;
     colorIndex2 =1;
   }
   
   void display(){
-    background(0);
+    background(80,0,80);
     
-    for (int y =0 + 5; y<height; y+=10 ){
-    for(int x =0 + 5; x<width; x+=10 ){
+    for (int y =0 + size/2; y<height; y+=size ){
+    for(int x =0 + size/2; x<width; x+=size ){
       noStroke();
-      fill(100);
-      ellipse(x,y,10,10);
+      fill(0);
+      ellipse(x,y,size,size);
     }
     }
     

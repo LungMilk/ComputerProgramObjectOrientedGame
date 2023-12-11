@@ -1,15 +1,5 @@
 class Snake{
-  //i want each snake to handle its own expantion and growth as well as intersections
-  //snake body is what shouldbe repeated
-  // to get the snake to move there will be a directional input that then causes the snake to move in a direction
-  
-  /*
-  how to get the body segments to be more spaced out
-  
-  what if i 
-  have the position segment as normalized in the update but then mulitply velocity after to show a speed change
-  so the position is recorded if normalized then the speed of the starting position is faster
-  */
+
   ArrayList<PVector> snakelist = new ArrayList<PVector>();
   int bodylimit = 1;
   
@@ -96,7 +86,6 @@ d68
    directionX = 1;
      break;
   }
-  println("my identity is" + identity);
     }
     if (identity == 2){
       switch(code){

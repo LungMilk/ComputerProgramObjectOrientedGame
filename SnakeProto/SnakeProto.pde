@@ -8,7 +8,6 @@ int colorIndex2;
 
 int winner;
 
-//the list is the recorded history for the single snake
 ArrayList<Food> foodList = new ArrayList<Food>();
 
 color[] SnakeColors = new color[8];
@@ -21,15 +20,12 @@ Snake snake2 = new Snake(2);
 endScreen end = new endScreen();
 startScreen start = new startScreen();
 
-//bouncing ball will be representative of the losers snake 
-
 Timer timer;
 int frequency = 500;
 
 void setup(){
   size(400,400);
   timer = new Timer(frequency);
- //rework the colors or simply add different ones for each player
  SnakeColors[0] = color(255,0,0);
 SnakeColors[1] = color(255,0,180);
 SnakeColors[2] = color(255,0,255);
@@ -67,8 +63,7 @@ snake2.restart();
   foodList.add(new Food());
   timer.start();
 }
-//issue with how the position is only snapshotted in time and stable
-//possibility to instead have a list that removes the old one then replaces it at a closer position for each in the list
+
 void draw(){
  if (startState){
    start.colorUpdate();
@@ -107,7 +102,6 @@ void draw(){
  }
  }
  for (int i = 0; i< snake.bodylimit-1;i++){
-   //this only works for the head of the snake
    if (snake2.intersectingSnakeBody(snake.snakelist.get(i), snake.size)){
      println("snake2 lost");
      winner = 1;
@@ -116,7 +110,6 @@ void draw(){
  }
  
  for (int i = 0; i< snake2.bodylimit-1;i++){
-   //this only works for the head of the snake
    if (snake.intersectingSnakeBody(snake2.snakelist.get(i), snake2.size)){
      println("snake 1 lost");
      winner = 2;
@@ -140,7 +133,6 @@ void keyPressed(){
   
   snake.direction(keyCode);
   snake2.direction(keyCode);
-  println("buttonpressed" + millis());
 }
 
 void keyReleased(){
