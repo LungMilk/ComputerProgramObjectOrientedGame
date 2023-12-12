@@ -23,13 +23,13 @@ class endScreen{
     }
     //big congrats text 
     fill(255);
-    textSize(40);
+    textSize(100);
     //having winIdentity as a variable allows for some string manipulation where the text displayed is reliant on the value instead of having some extra lines
-    text("player " + winIdentity + " wins!",90,170);
+    text("Player " + winIdentity + " Wins!", width/2 -300,height/2 - 200);
     //creates text displaying the players score
-    textSize(20);
-    text("player 1 Length: " + snake.bodylimit,80,230);
-    text("player 2 Length: " + snake2.bodylimit,80,250);
+    textSize(50);
+    text("Player 1 Length: " + snake.bodylimit,width/2 - 200,height/2);
+    text("Player 2 Length: " + snake2.bodylimit,width/2 - 200,height/2 +50);
     //if they are at the endscreen and they press either the start or restart button the program resets
     if(key=='2' || key =='1'){
      restart(); 

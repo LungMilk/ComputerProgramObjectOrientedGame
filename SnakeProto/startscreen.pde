@@ -3,7 +3,7 @@ class startScreen{
   //sizEllipse is used forhte ellipse for eahc playes color choice
   //size is for the repeating pattern in the background
   int size = (width/10);
-  int sizeEllipse = 100;
+  int sizeEllipse = 300;
   
   startScreen(){
     //once the screen is made the color indexs are set to the first position with the player 2 set one after
@@ -31,23 +31,23 @@ class startScreen{
     }
     //title of the game
     fill(255);
-    textSize(40);
-    text("Untitled Snake Game",25,100);
+    textSize(100);
+    text("Untitled Snake Game",width/2 -440,height/2 - 200);
     
     //identifying text of each players color choice
-    textSize(20);
-    text("Player 1",width/2 - 135,height/2 - 20);
-    textSize(20);
-    text("Player 2",width/2 + 65,height/2 - 20);
+    textSize(50);
+    text("Player 1",width/2 - 400,height/2 - 20);
+    textSize(50);
+    text("Player 2",width/2 + 250,height/2 - 20);
     //information text on how to start he game
     textSize(30);
-    text("Press 1 to start",width/2 - 90,height/2 + 150);
+    text("Press 1 to start",width/2 - 90,height/2 -150);
     //the ellipse to showcase the players starting colors depend on the values in SnakeColor
     fill(SnakeColors[colorIndex]);
-    ellipse(width/2 - sizeEllipse,height/2 + sizeEllipse/2,sizeEllipse,sizeEllipse);
+    ellipse(width/2 - 325,height/2 + 200,sizeEllipse,sizeEllipse);
     
     fill(SnakeColor2[colorIndex2]);
-    ellipse(width/2+ sizeEllipse,height/2 + sizeEllipse/2,sizeEllipse,sizeEllipse);
+    ellipse(width/2+ 325,height/2 +200,sizeEllipse,sizeEllipse);
   }
   void colorUpdate(){
  

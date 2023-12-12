@@ -14,7 +14,7 @@ class BouncingBall{
    position = PVector.random2D();
    //due to it being a PVector it is able to utilize system functions that can modify their porperites or values for complex maths
    //mult allows the random2d vector variables to span the entire screen
-   position.mult(random(width));
+   position.mult(random(1500));
    //establishes the starting speed
    position.z = 0;
    //width variable is equal to the value passed on endscreen

@@ -12,6 +12,7 @@ class Snake{
   //direction controls the direction with - to + values
   float directionX = 0;
   float directionY = 0;
+  int speed = 5;
   //the identity of the snake
   int identity;
   //on initialization the snake recieves its identity and sets its variables with teh reset function
@@ -50,7 +51,7 @@ class Snake{
     //color is dpeendand on the index chosen form the arrays of snakeColors
     fill(snakeColor);
     //the size is relative to the constant growth of the snake
-    size = snakelist.size()/2 + 10;
+    size = snakelist.size()/2 + 50;
     ellipse(s.x,s.y,size,size);
     }
   }
@@ -180,6 +181,8 @@ g71
   //normalizing it allows the speed of diagnol movement to always be 1 balancing movement similar to how a unit circle functions
   //this is useful as diagnol is now constant and ensures the result of the equation is always 1
   velocity.normalize();
+  //multiply the velocity to increase with speed so the value is always speed
+  velocity.mult(speed);
   //then velocity is added to position updating the values
   position.add(velocity);
   //so it basically does position.x + velocity.x, position.y + velocity.y &position.z + velocity.z except in a single condensed function

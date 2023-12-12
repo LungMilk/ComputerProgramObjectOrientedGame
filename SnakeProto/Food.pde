@@ -10,7 +10,7 @@ class Food {
     //food is removed and intitialized constantly so an restart is reduntant as the object is simply deleted
     position = new PVector(random(width), random(height));
     colorC = color(random(255), random(255), random(255),100);
-    size =10;
+    size =30;
   }
   void display() {
     //displays the rectangles that represent the food with a random color

@@ -31,7 +31,7 @@ int frequency = 500;
 void setup(){
   //establish size of canvas for project
   //the numbers are then assigned to height and width to be constant throughout the program
-  size(400,400);
+  size(1280,1024);
   //initialize the timer object while passing it the frequency of the spawn rates for the food
   timer = new Timer(frequency);
   //array of the color values for both players in seperate arrays
@@ -171,6 +171,9 @@ void keyPressed(){
   //on startup pressing 1 starts the game
   if (key=='1'){
     gameState = true;
+  }
+  if (key == 'q'){
+   endState = true; 
   }
   //due to the arcade cabinet control scheme keycode was used so the arrow keys could work 
   //the snakes each have a function that is passed the key code then determined which way they travel depending on identity
