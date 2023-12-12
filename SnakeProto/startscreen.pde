@@ -9,7 +9,6 @@ class startScreen{
     //once the screen is made the color indexs are set to the first position with the player 2 set one after
     colorIndex = 0;
     colorIndex2 =1;
-    println(size);
   }
   //the screens display
   void display(){

@@ -2,7 +2,6 @@
 eat as much food as possible and then eat your friend 
 try to trap them off with your tail to win
 */
-
 //booleans that determine game state
 boolean startState;
 boolean endState;
@@ -97,7 +96,7 @@ void draw(){
     gameState=false;
     endState = true;
    }
-   background(255);
+   background(20);
    //update the snakes positions and display them passing their selected color index from the start screen so they are drawn with their colors
    snake.move();
    snake2.move();

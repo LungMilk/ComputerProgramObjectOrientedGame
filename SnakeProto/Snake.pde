@@ -8,9 +8,8 @@ class Snake{
   PVector position;
   PVector velocity;
   int size;
-  //speed is the distance of each position change
-  float speed = 1;
-  //direction controls the direction of the speed with - to + values
+
+  //direction controls the direction with - to + values
   float directionX = 0;
   float directionY = 0;
   //the identity of the snake
@@ -173,10 +172,11 @@ g71
     }else if(position.y <= 0 +size/2){
       position.y = 0 +size/2;
     }
-    //velocity gets direction and speed added to it to determine its change in position
-    velocity.x = velocity.x +speed*directionX;
-    velocity.y = velocity.y +speed*directionY;
-  //velocity is the speed with the speed either being - or + which determines direction
+    //velocity gets direction added to it to determine its change in position
+    //since direction is limited to 1 and negatives, normalizing makes the speed also only 1
+    velocity.x = velocity.x +directionX;
+    velocity.y = velocity.y +directionY;
+  //velocity is the speed that it moves position with the speed either being - or + which determines direction
   //normalizing it allows the speed of diagnol movement to always be 1 balancing movement similar to how a unit circle functions
   //this is useful as diagnol is now constant and ensures the result of the equation is always 1
   velocity.normalize();
