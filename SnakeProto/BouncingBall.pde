@@ -9,7 +9,7 @@ class BouncingBall{
  float wide;
  float gravity = 0.1;
  //the width of the balls have a random size determined on the end screen
- BouncingBall(int tempw){
+ BouncingBall(float tempw){
    //the position of the PVector is randomized to have variety of its height and position
    position = PVector.random2D();
    //due to it being a PVector it is able to utilize system functions that can modify their porperites or values for complex maths
