@@ -55,7 +55,8 @@ class startScreen{
     //3 for player 1 4 for player 2 will cycle through the color index of each colors
     //once a key is pressed it checks which key it was with it determineing if the color index is changed
     if (keyPressed){
-      if (key == '3'){
+      //the additional buttons are used to utilize the extra buttons on the cabinet
+      if (key == '3' || key =='c'){
       colorIndex++;
       if(colorIndex ==colorIndex2){
        colorIndex++; 
@@ -64,13 +65,33 @@ class startScreen{
       colorIndex =0;
     }
       }
-      if (key == '4'){
+      //controls the ability to go backwards thought the index
+      if (key == '5'){
+      colorIndex--;
+      if(colorIndex ==colorIndex2){
+       colorIndex--; 
+      }
+      if (colorIndex<=0){
+       colorIndex=SnakeColors.length; 
+      }
+      }
+      //buttons to control player 2s controls
+      if (key == '4' || key ==']'){
       colorIndex2++;
       if(colorIndex ==colorIndex2){
        colorIndex2++; 
       }
       if (colorIndex2>=SnakeColor2.length){
        colorIndex2=0; 
+      }
+      }
+      if (key == '6'){
+      colorIndex2--;
+      if(colorIndex ==colorIndex2){
+       colorIndex2--; 
+      }
+      if (colorIndex2<=0){
+       colorIndex2=SnakeColor2.length; 
       }
       }
     }

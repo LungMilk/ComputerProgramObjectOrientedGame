@@ -53,6 +53,19 @@ SnakeColor2[5] = color(0,255,0);
 SnakeColor2[6] = color(255,255,0);
 SnakeColor2[7] = color(255,180,0);
 //having all the variables reset to default states in restart allows for the program to be replayable
+//print introduciton of goal and controls for both arcade and PC
+  println("Untitled Snake Game");
+  println("eat as much food as possible and then eat your friend try to trap them off with your tail to win");
+  println("then eat your friend try to trap them off with your tail to win");
+  println("");
+  println("Movement Controls");
+  println("Player 1: Left Joystick");
+  println("If on PC: Arrow Keys & 3 (c +,5 -) to change colors");
+  println("Player 2: Right Joystick");
+  println("If on PC r,d,f,g & 4 (] +,6 -) to change colors");
+  println("");
+  println("Additional Controls: 1 Start, 2 Restart (Only on Endscreen)");
+
 restart();
 }
 
@@ -76,6 +89,7 @@ snake2.restart();
   foodList.add(new Food());
   //start the timer so more can spawn
   timer.start();
+
 }
 
 void draw(){
